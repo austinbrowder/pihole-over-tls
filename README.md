@@ -12,7 +12,7 @@ https://bartonbytes.com/posts/how-to-configure-coredns-for-dns-over-tls/
 Pre-Reqs:
 - 1 docker host with docker-compose installed
 - Public DNS entry that resolves to the public ip address of the docker host that will run the DNS over TLS/HTTPS service we are building.
-- Firewall rules and potentially NAT rules to allow traffic hitting your public IP to travel to your docker host on port 853 (DoT) and port 443 (DoH).
+- Firewall rules and potentially NAT rules to allow traffic hitting your public IP to travel to your docker host on port 853 (DoT), port 443 (DoH), and port 80 (Let's Encrypt challenge).
 
 Steps to setup:
 1. Clone this repository onto the docker host. My examples assume you have cloned it into your users home directory.
