@@ -1,7 +1,7 @@
 # pihole-over-tls
 
 This project provides a self hosted DNS over TLS solution with Pi-hole filtering. It can be run from a cloud provider and has fully automated certificates from a public CA.
-Below is a blog that inspired me to do this. Give it a read.
+Below is a blog that helped me design some of the key pieces of this project. Give it a read.
 https://bartonbytes.com/posts/how-to-configure-coredns-for-dns-over-tls/
 
 Pre-Reqs:
