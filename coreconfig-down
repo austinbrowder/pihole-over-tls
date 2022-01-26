@@ -3,3 +3,8 @@ tls://.:853 {
   forward . {HOSTIP}:5353
   log
 }
+https://. {
+  tls /etc/letsencrypt/live/coredns/fullchain.pem /etc/letsencrypt/live/coredns/privkey.pem /etc/letsencrypt/live/coredns/chain.pem
+  forward . {HOSTIP}:5353
+  log
+}

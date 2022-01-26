@@ -27,20 +27,21 @@ services:
   dns_forwarder:
     image: "coredns/coredns"
     ports:
-            - "1053:1053/udp"
-            - "1053:1053"
+      - "1053:1053/udp"
+      - "1053:1053"
     volumes:
-            - "/etc/coredns/:/etc/coredns/"
+      - "/etc/coredns/:/etc/coredns/"
     command: -conf /etc/coredns/coreconfig-up -dns.port 1053
     restart: always
     container_name: coredns_up
   dns_listener:
     image: "coredns/coredns"
     ports:
-            - "853:853"
+      - "853:853"
+      - "443:443"
     volumes:
-            - "/etc/coredns/:/etc/coredns/"
-            - "/etc/letsencrypt/:/etc/letsencrypt/"
+      - "/etc/coredns/:/etc/coredns/"
+      - "/etc/letsencrypt/:/etc/letsencrypt/"
     command: -conf /etc/coredns/coreconfig-down
     restart: always
     container_name: coredns_down
