@@ -31,3 +31,5 @@ Steps to setup:
    > sudo crontab -u root -e
    > 0 2 */15 * * /home/\<yourusername\>/pihole-over-tls/renew.sh >> /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log 2>&1
    - Note: This job will run on the 15th day of every month and by default if the certbot detects no certs are due for renewal it will leave the cert as is.
+   - You may also wish to add some log rotation so this can truly be set it and forget it. Below is an example that I added to my crontab after the renew script.
+   > 0 3 */15 * * tail -c 1M /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log > /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log.tmp; mv /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log.tmp /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log
