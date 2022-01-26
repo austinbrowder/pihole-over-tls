@@ -28,7 +28,7 @@ Steps to setup:
    - Test full DNS functionality over HTTPS:
    > curl -H 'accept: application/dns-json'  'https://\<dockerhostpublicDNSName\>/dns-query?dns=AAABAAABAAAAAAAAA3d3dwdleGFtcGxlA2NvbQAAAQAB' | hexdump -C
 7. Now, if you're familiar with letsencrypt certificates, you will know that they expire every 90 days. Let's address this by setting up some automation to renew the cert. To do this we will simply setup a cronjob as seen below that will run the certbot container to renew the certificate previously configured by the configure.sh script. Next it will docker-compose recreate to force the containers to use the new certificate. You may need to set this cronjob up with the root user depending on how your docker host is setup.
-   > sudo crontab -u root -e
+   > sudo crontab -u root -e  
    > 0 2 */15 * * /home/\<yourusername\>/pihole-over-tls/renew.sh >> /home/\<yourusername\>/pihole-over-tls/letsencrypt_renew.log 2>&1
    - Note: This job will run on the 15th day of every month and by default if the certbot detects no certs are due for renewal it will leave the cert as is.
    - You may also wish to add some log rotation so this can truly be set it and forget it. Below is an example that I added to my crontab after the renew script.
